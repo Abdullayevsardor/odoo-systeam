@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Odoo
+*.pyc
+.odoorc
+odoo.conf
+*.log
+
+# Docker / DB volumes (agar repo ichida bo'lsa)
+postgres-data/
+odoo-data/
+filestore/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+!.env.example

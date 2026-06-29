@@ -1,0 +1,46 @@
+<odoo>
+    <!-- 1. Print harakatini ro'yxatdan o'tkazish -->
+    <record id="action_report_library_book" model="ir.actions.report">
+        <field name="name">Kitob hisoboti</field>
+        <field name="model">library.book</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">my_library.report_library_book</field>
+        <field name="binding_model_id" ref="model_library_book"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- 2. Shablonning o'zi -->
+    <template id="report_library_book">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Kitob ma'lumoti</h2>
+                        <table class="table table-sm">
+                            <tr>
+                                <td><strong>Sarlavha:</strong></td>
+                                <td><span t-field="doc.name"/></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Muallif:</strong></td>
+                                <td><span t-field="doc.author"/></td>
+                            </tr>
+                            <tr>
+                                <td><strong>ISBN:</strong></td>
+                                <td><span t-field="doc.isbn"/></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sahifalar:</strong></td>
+                                <td><span t-field="doc.pages"/></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Holat:</strong></td>
+                                <td><span t-field="doc.state"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
